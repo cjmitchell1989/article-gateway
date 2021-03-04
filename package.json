@@ -30,6 +30,7 @@
     "nyc": "^15.1.0"
   },
   "dependencies": {
+    "bunyan": "^1.8.15",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }

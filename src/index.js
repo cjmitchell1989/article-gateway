@@ -4,7 +4,12 @@ const {
   }
 } = require('./config')
 
+const bunyan = require('bunyan')
+const logger = bunyan.createLogger({ name: 'article-gateway'})
+
 const app = require('./app')
+app.setResource('logger', logger)
+
 const server = app.listen(SERVER_PORT, () => {
   console.info(`Server listening on port ${SERVER_PORT}`)
 })
