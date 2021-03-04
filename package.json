@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
+    "lint": "eslint ./src/ --ext .js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/cjmitchell1989/article-gateway/issues"
   },
-  "homepage": "https://github.com/cjmitchell1989/article-gateway#readme"
+  "homepage": "https://github.com/cjmitchell1989/article-gateway#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0"
+  }
 }
