@@ -7,6 +7,15 @@ const expect = chai.expect
 const server = require('../src')
 
 describe('Test initial route and setup of express', () => {
+  it('should return unauthrized with no client_id query param set', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(res).to.have.status(401)
+        done()
+      })
+  })
+
   it('should return unauthrized with no client_id passed', (done) => {
     chai.request(server)
       .get('/?client_id=')
