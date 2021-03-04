@@ -1,9 +1,19 @@
+const {
+  Access: AccessService
+} = require('../services')
+
 const checkAccessLimit = (req, res, next) => {
   const logger = req.app.get('logger')
-  logger.info('test')
-
-  res.status(200).send({ message: 'OK' })
-  return next()
+  
+  const accessService = new AccessService(logger)
+  accessService.checkAccess().then(result => {
+    res.status(200).send(result)
+    return next()
+  }).catch(err => {
+    logger.info(err)
+    return next(err)
+  })
+  
 }
 
 module.exports = {
