@@ -11,7 +11,7 @@ const app = require('./app')
 app.setResource('logger', logger)
 
 const server = app.listen(SERVER_PORT, () => {
-  console.info(`Server listening on port ${SERVER_PORT}`)
+  logger.info(`Server listening on port ${SERVER_PORT}`)
 })
 
 module.exports = server
