@@ -1,11 +1,19 @@
 version: '3.1'
 
 services:
+  db:
+    image: redis:6.2.1
+    container_name: database
+    ports:
+      - 6379:6379
   article-gateway:
     build: .
     container_name: article-gateway
     environment:
       NODE_ENV: development
       PORT: 5000
+      DATABASE_PATH: database
+      DATABASE_PORT: 6379
+      MAX_ACCESSES: 3
     ports:
       - 3000:5000
