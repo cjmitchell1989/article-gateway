@@ -1,6 +1,7 @@
 const {
   core: {
-    setResource
+    setResource,
+    corsConfig
   }
 } = require('./middlewares')
 
@@ -11,6 +12,7 @@ const app = express()
 app.disable('x-powered-by')
 
 app.setResource = setResource
+app.use(corsConfig)
 
 app.get('/', (req, res, next) => {
   const logger = req.app.get('logger')
