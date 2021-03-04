@@ -8,3 +8,9 @@ The user must make a request for an article, including their client_id, and the 
 - If the number of accesses exceeds the limit value, a 429 code will be returned
 - If it does not exist, the client_id will be created, number of accesses set to 1 and a 200 code returned
 
+
+## Use
+To use the gateway locally, run `docker-compose up --duild`.
+This will run the gateway on port 3000
+
+Make a GET request to `localhost:3000`
