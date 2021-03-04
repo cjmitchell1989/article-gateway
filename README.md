@@ -13,4 +13,4 @@ The user must make a request for an article, including their client_id, and the 
 To use the gateway locally, run `docker-compose up --duild`.
 This will run the gateway on port 3000
 
-Make a GET request to `localhost:3000`
+Make a GET request to `localhost:3000?client_id={xxx}`
