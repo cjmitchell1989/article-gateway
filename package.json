@@ -2,12 +2,13 @@
   "name": "article-gateway",
   "version": "1.0.0",
   "description": "The article gateway is used to limit the number of articles a user can access.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
     "lint": "eslint ./src/ --ext .js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm run lint",
+    "test": "nyc --reporter=text mocha --exit tests/**/*spec.js --recursive"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,11 @@
   },
   "homepage": "https://github.com/cjmitchell1989/article-gateway#readme",
   "devDependencies": {
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
     "eslint": "^7.21.0",
-    "nodemon": "^2.0.7"
+    "mocha": "^8.3.0",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0"
   }
 }
