@@ -14,4 +14,16 @@ const server = app.listen(SERVER_PORT, () => {
   logger.info(`Server listening on port ${SERVER_PORT}`)
 })
 
+// Handle process ends
+const shutdown = ({ code = 0, message = 'FAIL' } = {}) => {
+  logger.warn(`Shutting down with error code: ${code} Message: ${message}`)
+  if (server) {
+    server.close()
+  }
+  process.exit()
+}
+process.on('SIGINT', () => { shutdown({ code: 1, message: 'SIGINT' }) })
+process.on('SIGTERM', () => { shutdown({ code: 1, message: 'SIGTERM' }) })
+
+
 module.exports = server
