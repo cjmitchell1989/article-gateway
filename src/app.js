@@ -1,12 +1,16 @@
+const {
+  core: {
+    setResource
+  }
+} = require('./middlewares')
+
 const express = require('express')
 const app = express()
 
 // Remove x-powered-by to hide express
 app.disable('x-powered-by')
 
-app.setResource = function (type, resource) {
-  this.set(type, resource)
-}
+app.setResource = setResource
 
 app.get('/', (req, res, next) => {
   const logger = req.app.get('logger')
