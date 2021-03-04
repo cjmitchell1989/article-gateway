@@ -4,8 +4,8 @@ class AccessService {
     this._logger = logger
   }
 
-  async checkAccess() {
-    this._logger.info('Checking access')
+  async checkAccessLimit(clientId) {
+    this._logger.info({ clientId })
     return { message: 'OK' }
   }
 
