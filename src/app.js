@@ -1,7 +1,9 @@
 const {
   core: {
     setResource,
-    corsConfig
+    corsConfig,
+    catchBadRoute,
+    errorHandler
   }
 } = require('./middlewares')
 
@@ -21,5 +23,8 @@ app.get('/', (req, res, next) => {
   res.status(200).send({ message: 'OK' })
   return next()
 })
+
+app.use(catchBadRoute)
+app.use(errorHandler)
 
 module.exports = app

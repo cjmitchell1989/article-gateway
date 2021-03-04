@@ -15,4 +15,13 @@ describe('Test initial route and setup of express', () => {
         done()
       })
   })
+
+  it('should return an error for bad route', (done) => {
+    chai.request(server)
+      .get('/test')
+      .end((err, res) => {
+        expect(res).to.have.status(404)
+        done()
+      })
+  })
 })
